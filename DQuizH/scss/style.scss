@@ -1,0 +1,88 @@
+@mixin desktop {
+    @media screen and (min-width:950px) {
+        @content;        
+    }
+}
+@mixin tablet {
+    @media screen and (min-width:768px) {
+        @content;        
+    }
+}
+@mixin phone {
+    @media screen and (min-width:390px) {
+        @content;        
+    }
+}
+@mixin smphone {
+    @media screen and (min-width:280px) {
+        @content;        
+    }
+}
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(255, 238, 162);
+    text-size-adjust: 100%;
+}
+.container {
+    #adjustment {
+        position: fixed;
+    }
+    .btn {
+        margin: auto;
+        padding: auto;
+    }
+    .quiz-holder {
+        .col-12 {
+            img {
+                width: 50%;
+            }
+        }
+    }
+
+    #answer-alt-grid-box {
+        .answer-container {
+            font-size: 1.2rem;
+            .answer-textalt:hover {
+                cursor: pointer;
+                box-shadow: 0 0.4rem 1.4rem rgb(98, 85, 62);
+                transform:translateY(-0.1rem);
+                transition: transform 150ms;
+            }
+            .correct:hover {
+                background-color: rgb(28, 223, 28);
+                cursor: pointer;
+            }
+            .incorrect:hover {
+                background-color: rgb(251, 38, 38);
+                cursor: pointer;
+            }
+            .answer-textalt {
+                padding: 1.8rem;
+                margin: 0px;
+                background-color: rgb(237, 203, 81);
+                border-radius: 5px;
+                height: 15vh;
+            }
+            .answer-prefix {
+                background-color: rgb(255, 179, 0);
+                color: white;
+                padding: 0.5rem 2.5rem;
+                margin: 0;
+                border-style: groove;
+                border-radius: 5px;                
+            }
+        }
+    }
+    .hide {
+        display: none;
+        
+    }
+
+    .result {
+        height: 40rem;
+        background-color: rgb(255, 255, 255);
+    }
+    #cbm {
+        background-color: rgb(255, 179, 0);
+    }
+}
