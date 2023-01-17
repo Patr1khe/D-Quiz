@@ -94,7 +94,76 @@ startGame = () => {
 
 }
 
+let correctHeroes = [];
+let addIndexZero = [];
+let checkCorrect = []; 
 
+getNewQuestion = () => {
+    // Game ends after answer 10/20/41 Images
+    if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+        
+            localStorage.setItem('mostRecentScore', scoreText.innerText)
+            localStorage.setItem('mostRecentRound', progressCount.innerText)
+            return window.location.assign("index.html")
+  
+        
+    }
+
+    questionCounter++;
+    progressCount.innerText = `${questionCounter}/${MAX_QUESTIONS}`
+
+    const questionsIndex = Math.floor(Math.random()*availableQuestions.length)
+  
+    questionImgCol.innerHTML = `<img src="${availableQuestions[0].image}">`;
+   
+    console.log(availableQuestions[0])
+    
+    
+
+    copyCurrentQ.push(availableQuestions[0].name)
+    copyCurrentQ.push(availableQuestions[1].name)
+    copyCurrentQ.push(availableQuestions[2].name)
+    copyCurrentQ.push(availableQuestions[3].name)
+    correctHeroes = availableQuestions[0].name;
+    addIndexZero.push(availableQuestions[0])
+    checkCorrect.push(availableQuestions[0])
+
+    
+   
+  
+
+    // This shuffle pickalts answer will referesh everytime i click on the alternative.
+    shuffleArrayIn(copyCurrentQ, startingIndex)
+    
+    
+
+
+    
+    pickAlts.forEach((pickAlt) => {
+        const number = pickAlt.dataset['number'];
+        pickAlt.innerText ="";
+        pickAlt.innerText += copyCurrentQ[number]
+        console.log(availableQuestions[0])
+        console.log(availableQuestions)
+        
+        
+    });
+    
+    copyCurrentQ.splice(-4);
+
+    // remove e.target questionsindex while randomise a name
+    // selectedpickAlt = availableQuestions.splice(questionsIndex, 1);
+    
+    
+    // remove starting index of array while e.target the 1st option box that's index 0 of availableQuestion Arrayn.
+    availableQuestions.shift(questionsIndex, 1);
+    acceptingAnswers = true;
+
+
+
+    
+    
+}
 
 
 
