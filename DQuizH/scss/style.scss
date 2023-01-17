@@ -146,6 +146,20 @@ body {
                 }
             }
         }
+        #QuizIntro {
+            #adjustment {
+                .image-counter {
+                    .prefix {
+                        font-size: 1.2rem;
+                    }
+                }
+                .score-counter {
+                    .prefix {
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
     }
 }
 @include desktop {
