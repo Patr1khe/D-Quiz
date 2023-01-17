@@ -165,6 +165,66 @@ getNewQuestion = () => {
     
 }
 
+pickAlts.forEach(pickAlt => {
+    pickAlt.addEventListener('click', e => {
+        e.preventDefault()
+
+         if (!acceptingAnswers) return;
+
+         acceptingAnswers = false;
+
+
+            
+        if (availableQuestions.length <= 3 && !availableQuestions.includes(addIndexZero[0])) {
+            availableQuestions.push(addIndexZero[0])
+            addIndexZero.shift()
+            
+            
+           
+             
+            
+        }
+         
+
+         let selectedpickAlt = e.target;
+         let selectedAnswer = selectedpickAlt.dataset['number'];
+            
+            if (selectedAnswer) {
+                if(e.target.innerText == correctHeroes) {
+                console.log("correct answer");
+                incrementScore(SCORE_POINTS);
+                e.target.classList.add("correct")
+
+                setTimeout(()=>{
+                e.target.classList.remove("correct")
+                },1000)
+                
+                
+            } else {
+                console.log("false answer")
+                e.target.classList.add("incorrect")
+                setTimeout(() => {
+                e.target.classList.remove("incorrect")
+                },1000);
+                
+            }
+
+            }
+
+        setTimeout(() => {
+            
+            getNewQuestion()
+        }, 1000)
+        
+        
+    })
+})  
+
+incrementScore = num => {
+    score += num;
+    scoreText.innerText = `${score}/${MAX_QUESTIONS} Correct`
+}
+
 
 
 
