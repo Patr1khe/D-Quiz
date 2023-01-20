@@ -85,7 +85,7 @@ startGame = () => {
     acceptingAnswers = true;
     scoreText.innerText = score;
     score = 0;
-    availableQuestions = [...Dota2Heroes];
+    availableQuestions = [...videoGames];
     shuffleArr(availableQuestions)
     console.log(availableQuestions)
     getNewQuestion()
@@ -99,7 +99,7 @@ let addIndexZero = [];
 let checkCorrect = []; 
 
 getNewQuestion = () => {
-    // Game ends after answer 10/20/41 Images
+    // Game ends after answer 10/20/31 Images
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         
             localStorage.setItem('mostRecentScore', scoreText.innerText)
@@ -231,11 +231,11 @@ incrementScore = num => {
 // Show randomise image in javascript 
 const qImage = () => {
     questionImgCol.innerHTML ="";
-    const hqImg = Dota2Heroes.map(() => {
+    const hqImg = videoGames.map(() => {
         questionImgCol.innerHTML = `
-        <img src="${Dota2Heroes[Math.floor(Math.random()*41)].image}">
+        <img src="${videoGames[Math.floor(Math.random()*31)].image}">
         `
-        return Dota2Heroes[0]
+        return videoGames[0]
     });
     
 }
